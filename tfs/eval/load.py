@@ -13,7 +13,7 @@ import time
 import numpy as np
 
 from tfs import settings
-from tfs.eval.client import Service
+from tfs.eval.client import Service, session
 from tfs.eval.metrics import percentile
 from tfs.world.luck import stream
 from tfs.world.shops import Shop
@@ -65,13 +65,18 @@ def schedule(shops: list[Shop], seed: int, cap: float) -> list[tuple[float, str,
     return events
 
 
-async def play(service: Service, events: list[tuple[float, str, str, dict]], mode: str) -> list[dict]:
+async def play(url: str, events: list[tuple[float, str, str, dict]], mode: str) -> list[dict]:
+    """Each shop is its own client with its own connection pool, so a shop can only wait on the service, never on
+    another shop's connections inside the load generator."""
     cfg = settings.world()["load"]
     results: list[dict] = []
+    tenants = sorted({e[1] for e in events})
+    sessions = {t: session(limit=4096) for t in tenants}
+    clients = {t: Service(sessions[t], url) for t in tenants}
     start = time.perf_counter()
 
     async def fire(tenant: str, phase: str, body: dict) -> None:
-        ans = await service.search(tenant, body, admission=mode, timeout=cfg["client_timeout_seconds"])
+        ans = await clients[tenant].search(tenant, body, admission=mode, timeout=cfg["client_timeout_seconds"])
         results.append({"tenant": tenant, "phase": phase, "status": ans.status, "ms": ans.ms})
 
     tasks = []
@@ -81,6 +86,8 @@ async def play(service: Service, events: list[tuple[float, str, str, dict]], mod
             await asyncio.sleep(delay)
         tasks.append(asyncio.create_task(fire(tenant, phase, body)))
     await asyncio.gather(*tasks)
+    for sess in sessions.values():
+        await sess.close()
     await asyncio.sleep(1.0)
     return results
 
@@ -115,5 +122,5 @@ async def run(service: Service, shops: list[Shop], seed: int) -> dict:
     out = {"capacity_qps": cap, "events": len(events)}
     for mode in ("none", "fair"):
         await asyncio.sleep(2.0)
-        out[mode] = summarise(await play(service, events, mode), noisy)
+        out[mode] = summarise(await play(service.url, events, mode), noisy)
     return out
