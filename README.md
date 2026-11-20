@@ -16,6 +16,63 @@ fails if it drifts from the reports. The evaluation runs in GitHub Actions again
 one-node Elasticsearch 8.15 cluster.
 
 <!-- results:start -->
+
+### Dashboard (development worlds)
+
+| Development | Routed + query understanding | Hybrid, fused, every query | Lexical (BM25) only |
+|---|---:|---:|---:|
+| nDCG@10, all queries (95% interval) | **0.873 (0.866 to 0.880)** | 0.787 (0.778 to 0.795) | 0.672 (0.660 to 0.684) |
+| nDCG@10, keywords | **0.872** | 0.803 | 0.659 |
+| nDCG@10, full sentences | **0.797** | 0.603 | 0.507 |
+| nDCG@10, AI agents | **0.921** | 0.913 | 0.767 |
+| nDCG@10, SKU lookups | **1.000** | 1.000 | 1.000 |
+| SKU lookups with the right product first | **100.0%** | 100.0% | 100.0% |
+| Top-10 results that break a stated constraint | **5.8%** | 17.2% | 17.9% |
+| Queries with no results | **0.0%** | 0.0% | 4.9% |
+| Cluster time per query | **15.5 ms** | 20.7 ms | 13.3 ms |
+| Cluster cost per 1,000 queries | **€0.0006** | €0.0009 | €0.0006 |
+
+3 simulated worlds, each with 4 shops and 9,400 products; 1,280 graded queries a world, 3,840 in all (1,668 keywords, 1,083 full sentences, 683 AI agents, 406 SKU lookups).
+
+![nDCG by query shape](reports/charts/shapes.svg)
+
+### Every design on the same queries
+
+| Design | nDCG@10 | Keywords | Sentences | Agents | SKU first | Constraint breaks | Cluster ms |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Hybrid, fused, every query | 0.787 | 0.803 | 0.603 | 0.913 | 100.0% | 17.2% | 20.7 |
+| Hybrid + query understanding | 0.866 | 0.872 | 0.776 | 0.914 | 100.0% | 5.7% | 18.3 |
+| Lexical (BM25) only | 0.672 | 0.659 | 0.507 | 0.767 | 100.0% | 17.9% | 13.3 |
+| **Routed + query understanding** | 0.873 | 0.872 | 0.797 | 0.921 | 100.0% | 5.8% | 15.5 |
+| Routed, no query understanding | 0.795 | 0.804 | 0.627 | 0.920 | 100.0% | 18.3% | 18.0 |
+| Vector only | 0.659 | 0.772 | 0.584 | 0.892 | 0.0% | 20.1% | 7.3 |
+
+| Routed + understanding minus | Mean nDCG@10 difference (95% interval) | Paired queries |
+|---|---:|---:|
+| Hybrid, fused, every query | +0.086 (+0.080 to +0.093) | 3,840 |
+| Hybrid + query understanding | +0.007 (+0.006 to +0.009) | 3,840 |
+| Lexical (BM25) only | +0.202 (+0.191 to +0.213) | 3,840 |
+| Routed, no query understanding | +0.078 (+0.071 to +0.085) | 3,840 |
+| Vector only | +0.214 (+0.202 to +0.226) | 3,840 |
+
+### One shop's AI agent bursts
+
+Measured capacity of the service and a one-node cluster on the CI runner: about **496 searches a second**. During the burst one shop's agent sends 1.6 times that, while the other three shops keep a steady trickle.
+
+| While one shop's agent bursts | Per-tenant admission | One shared queue |
+|---|---:|---:|
+| Other shops' p50 latency, before the burst | 5 ms | 5 ms |
+| Other shops' p99 latency, before the burst | 12 ms | 10 ms |
+| Other shops' p50 latency, during the burst | **5 ms** | 1,432 ms |
+| Other shops' p99 latency, during the burst | **21 ms** | 2,256 ms |
+| Other shops' searches that failed during the burst | **0.0%** | 79.9% |
+| Agent's searches answered 429 (retry later) | 94.2% | 0.0% |
+| Agent's searches that timed out or failed | 0.0% | 80.2% |
+
+![Isolation](reports/charts/isolation.svg)
+
+Gate (`config/gate.yaml`) on the development worlds: **passed**.
+
 <!-- results:end -->
 
 ## What is in the box

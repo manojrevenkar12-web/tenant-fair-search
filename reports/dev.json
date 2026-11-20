@@ -1,0 +1,603 @@
+{
+  "comparisons": {
+    "routed - hybrid_rrf": {
+      "ci": [
+        0.07952380765512518,
+        0.09279146593414025
+      ],
+      "mean": 0.08618351196540222,
+      "n": 3840
+    },
+    "routed - hybrid_with_understanding": {
+      "ci": [
+        0.005500596076837293,
+        0.00934243563631197
+      ],
+      "mean": 0.007382155064393589,
+      "n": 3840
+    },
+    "routed - lexical": {
+      "ci": [
+        0.19062999674411002,
+        0.21285068705008783
+      ],
+      "mean": 0.2015763922808792,
+      "n": 3840
+    },
+    "routed - routed_without_understanding": {
+      "ci": [
+        0.07103397138964658,
+        0.08489095722817952
+      ],
+      "mean": 0.07786555850456832,
+      "n": 3840
+    },
+    "routed - semantic": {
+      "ci": [
+        0.20186327685900413,
+        0.2262530885514614
+      ],
+      "mean": 0.21431140900383466,
+      "n": 3840
+    }
+  },
+  "designs": {
+    "hybrid_rrf": {
+      "by_shape": {
+        "agent": 0.9130309149508801,
+        "keyword": 0.8028287029013562,
+        "sentence": 0.60343431470327,
+        "sku": 1.0
+      },
+      "cost_per_1000_eur": 0.0008623914930555555,
+      "es_ms": 20.697395833333335,
+      "first_ok": 0.8107163657542225,
+      "ndcg": 0.7870410818162903,
+      "ndcg_ci": [
+        0.7783266139400088,
+        0.7954444484856376
+      ],
+      "plans": {
+        "hybrid": 3840
+      },
+      "queries": 3840,
+      "sku_first": 1.0,
+      "violations_top10": 0.17244092193828492,
+      "zero_results": 0.0
+    },
+    "hybrid_with_understanding": {
+      "by_shape": {
+        "agent": 0.9135745818346155,
+        "keyword": 0.8720774302227855,
+        "sentence": 0.7758433718095838,
+        "sku": 1.0
+      },
+      "cost_per_1000_eur": 0.000762380642361111,
+      "es_ms": 18.297135416666666,
+      "first_ok": 0.8995340710541643,
+      "ndcg": 0.8658424387172989,
+      "ndcg_ci": [
+        0.8582335884215444,
+        0.8730527572326356
+      ],
+      "plans": {
+        "hybrid": 3840
+      },
+      "queries": 3840,
+      "sku_first": 1.0,
+      "violations_top10": 0.05670824105373587,
+      "zero_results": 0.0
+    },
+    "lexical": {
+      "by_shape": {
+        "agent": 0.7672160306367243,
+        "keyword": 0.6593803669413766,
+        "sentence": 0.5071782943490528,
+        "sku": 1.0
+      },
+      "cost_per_1000_eur": 0.0005535047743055556,
+      "es_ms": 13.284114583333333,
+      "first_ok": 0.6592894583576004,
+      "ndcg": 0.6716482015008133,
+      "ndcg_ci": [
+        0.6598158909139675,
+        0.6839260754868821
+      ],
+      "plans": {
+        "lexical": 3840
+      },
+      "queries": 3840,
+      "sku_first": 1.0,
+      "violations_top10": 0.179493545183714,
+      "zero_results": 0.04895833333333333
+    },
+    "routed": {
+      "by_shape": {
+        "agent": 0.9206803546819006,
+        "keyword": 0.8724036979213469,
+        "sentence": 0.7970345242300593,
+        "sku": 1.0
+      },
+      "cost_per_1000_eur": 0.0006477213541666667,
+      "es_ms": 15.5453125,
+      "first_ok": 0.905940594059406,
+      "ndcg": 0.8732245937816925,
+      "ndcg_ci": [
+        0.8659250224405869,
+        0.8801888117590567
+      ],
+      "plans": {
+        "hybrid": 3434,
+        "sku": 406
+      },
+      "queries": 3840,
+      "sku_first": 1.0,
+      "violations_top10": 0.057553327893693905,
+      "zero_results": 0.0
+    },
+    "routed_without_understanding": {
+      "by_shape": {
+        "agent": 0.9204420662893354,
+        "keyword": 0.8038416000088198,
+        "sentence": 0.626693421397811,
+        "sku": 1.0
+      },
+      "cost_per_1000_eur": 0.0007485894097222221,
+      "es_ms": 17.966145833333332,
+      "first_ok": 0.8211997670355271,
+      "ndcg": 0.7953590352771241,
+      "ndcg_ci": [
+        0.7871036465125075,
+        0.8041950626717104
+      ],
+      "plans": {
+        "hybrid": 3434,
+        "sku": 406
+      },
+      "queries": 3840,
+      "sku_first": 1.0,
+      "violations_top10": 0.18319298347853957,
+      "zero_results": 0.0
+    },
+    "semantic": {
+      "by_shape": {
+        "agent": 0.8921299029931703,
+        "keyword": 0.7721174457525068,
+        "sentence": 0.5844967740419733,
+        "sku": 0.0
+      },
+      "cost_per_1000_eur": 0.00030312499999999995,
+      "es_ms": 7.275,
+      "first_ok": 0.8054746651135701,
+      "ndcg": 0.6589131847778578,
+      "ndcg_ci": [
+        0.6480532301905847,
+        0.6701639889729357
+      ],
+      "plans": {
+        "semantic": 3840
+      },
+      "queries": 3840,
+      "sku_first": 0.0,
+      "violations_top10": 0.2009091173985256,
+      "zero_results": 0.10572916666666667
+    }
+  },
+  "examples": [
+    {
+      "filters": null,
+      "lexical": {
+        "ndcg": 0.0,
+        "top": [
+          {
+            "grade": 0,
+            "price": 16.39,
+            "title": "Normteil Brass Compression Fitting"
+          },
+          {
+            "grade": 0,
+            "price": 21.69,
+            "title": "Normteil Brass Compression Fitting"
+          },
+          {
+            "grade": 0,
+            "price": 13.7,
+            "title": "Normteil Brass Compression Fitting"
+          },
+          {
+            "grade": 0,
+            "price": 5.99,
+            "title": "Normteil Ceramic Blade Fuse"
+          },
+          {
+            "grade": 0,
+            "price": 2.19,
+            "title": "Normteil Ceramic Blade Fuse"
+          }
+        ]
+      },
+      "plan": "hybrid",
+      "query": "normteil jubilee clip",
+      "routed": {
+        "ndcg": 1.0,
+        "top": [
+          {
+            "grade": 3,
+            "price": 11.79,
+            "title": "Normteil Galvanized Spring Band Clamp"
+          },
+          {
+            "grade": 3,
+            "price": 1.87,
+            "title": "Normteil Galvanized Worm Drive Hose Clamp"
+          },
+          {
+            "grade": 3,
+            "price": 1.11,
+            "title": "Normteil Galvanized Silver Worm Drive Hose Clamp"
+          },
+          {
+            "grade": 3,
+            "price": 16.6,
+            "title": "Normteil Quick Release Worm Drive Hose Clamp"
+          },
+          {
+            "grade": 3,
+            "price": 17.72,
+            "title": "Normteil Galvanized Worm Drive Hose Clamp"
+          }
+        ]
+      },
+      "shape": "keyword",
+      "tenant": "parts",
+      "understood": {
+        "filters": {
+          "brand": "normteil"
+        },
+        "text": "jubilee clip"
+      }
+    },
+    {
+      "filters": null,
+      "lexical": {
+        "ndcg": 0.0,
+        "top": [
+          {
+            "grade": 0,
+            "price": 1.4,
+            "title": "Precisa Ceramic Silver Cartridge Fuse"
+          },
+          {
+            "grade": 0,
+            "price": 7.32,
+            "title": "Bauwerk Stainless Threaded Elbow Fitting"
+          },
+          {
+            "grade": 0,
+            "price": 17.82,
+            "title": "Bauwerk Ceramic Blue Cartridge Fuse"
+          },
+          {
+            "grade": 0,
+            "price": 3.57,
+            "title": "Kraftline Ceramic Black Blade Fuse"
+          },
+          {
+            "grade": 0,
+            "price": 33.33,
+            "title": "Bauwerk Brass Red Threaded Elbow Fitting"
+          }
+        ]
+      },
+      "plan": "hybrid",
+      "query": "i need a zip ties that works for workshop repairs",
+      "routed": {
+        "ndcg": 1.0,
+        "top": [
+          {
+            "grade": 3,
+            "price": 4.47,
+            "title": "Techna Heavy Duty Blue Nylon Cable Tie"
+          },
+          {
+            "grade": 3,
+            "price": 23.19,
+            "title": "Precisa Heat Stabilised Black Releasable Cable Tie"
+          },
+          {
+            "grade": 3,
+            "price": 3.84,
+            "title": "Techna Heat Stabilised Releasable Cable Tie"
+          },
+          {
+            "grade": 3,
+            "price": 3.39,
+            "title": "Normteil Heat Stabilised Silver Releasable Cable Tie"
+          },
+          {
+            "grade": 3,
+            "price": 4.44,
+            "title": "Ferrolux Releasable Nylon Cable Tie"
+          }
+        ]
+      },
+      "shape": "sentence",
+      "tenant": "parts",
+      "understood": {
+        "filters": {},
+        "text": "i need a zip ties that works for workshop repairs"
+      }
+    },
+    {
+      "filters": {
+        "colour": "yellow",
+        "maxPrice": 170.0
+      },
+      "lexical": {
+        "ndcg": 0.0,
+        "top": []
+      },
+      "plan": "hybrid",
+      "query": "raincoat",
+      "routed": {
+        "ndcg": 1.0,
+        "top": [
+          {
+            "grade": 3,
+            "price": 130.93,
+            "title": "Tundra Waterproof Yellow Rain Jacket"
+          },
+          {
+            "grade": 3,
+            "price": 117.83,
+            "title": "Alpenrot Lightweight Yellow Rain Jacket"
+          },
+          {
+            "grade": 3,
+            "price": 101.33,
+            "title": "Fjellwerk Breathable Yellow Waterproof Shell"
+          },
+          {
+            "grade": 3,
+            "price": 114.21,
+            "title": "Nordkamm Breathable Yellow Hardshell Jacket"
+          },
+          {
+            "grade": 3,
+            "price": 126.69,
+            "title": "Nordkamm Breathable Yellow Waterproof Shell"
+          }
+        ]
+      },
+      "shape": "agent",
+      "tenant": "outdoor",
+      "understood": {
+        "filters": {
+          "colour": "yellow",
+          "maxPrice": 170.0
+        },
+        "text": "raincoat"
+      }
+    },
+    {
+      "filters": null,
+      "lexical": {
+        "ndcg": 1.0,
+        "top": [
+          {
+            "grade": 3,
+            "price": 2.67,
+            "title": "Bauwerk Zinc Plated Yellow Hexagon Head Bolt"
+          }
+        ]
+      },
+      "plan": "sku",
+      "query": "pt-31728",
+      "routed": {
+        "ndcg": 1.0,
+        "top": [
+          {
+            "grade": 3,
+            "price": 2.67,
+            "title": "Bauwerk Zinc Plated Yellow Hexagon Head Bolt"
+          }
+        ]
+      },
+      "shape": "sku",
+      "tenant": "parts",
+      "understood": {
+        "filters": {},
+        "text": "pt-31728"
+      }
+    }
+  ],
+  "load": {
+    "capacity_qps": 496.15209692238676,
+    "fair": {
+      "noisy_failed_share": 0.0,
+      "noisy_limited_share": 0.9419735215933502,
+      "noisy_sent_in_burst": 11066.0,
+      "noisy_served_in_burst": 635.0,
+      "quiet_burst_failed": 0.0,
+      "quiet_burst_p50_ms": 5.339006833338544,
+      "quiet_burst_p99_ms": 20.97312388999716,
+      "quiet_calm_p50_ms": 5.007845000013352,
+      "quiet_calm_p99_ms": 12.144046906657502,
+      "quiet_requests_in_burst": 614.6666666666666
+    },
+    "none": {
+      "noisy_failed_share": 0.8023700171190624,
+      "noisy_limited_share": 0.0,
+      "noisy_sent_in_burst": 11066.0,
+      "noisy_served_in_burst": 2197.0,
+      "quiet_burst_failed": 0.7988930071360315,
+      "quiet_burst_p50_ms": 1431.5745444999948,
+      "quiet_burst_p99_ms": 2255.7981547500103,
+      "quiet_calm_p50_ms": 5.030374333339675,
+      "quiet_calm_p99_ms": 9.606238913326687,
+      "quiet_requests_in_burst": 614.6666666666666
+    },
+    "per_seed": [
+      {
+        "capacity_qps": 428.0082014265944,
+        "events": 10415,
+        "fair": {
+          "noisy_failed_share": 0.0,
+          "noisy_limited_share": 0.9331290935981407,
+          "noisy_sent_in_burst": 9466,
+          "noisy_served_in_burst": 633,
+          "quiet_burst_failed": 0.0,
+          "quiet_burst_p50_ms": 4.789586000015333,
+          "quiet_burst_p99_ms": 11.915298719977718,
+          "quiet_calm_p50_ms": 4.815129500002513,
+          "quiet_calm_p99_ms": 14.221572239977167,
+          "quiet_requests_in_burst": 493
+        },
+        "none": {
+          "noisy_failed_share": 0.8168180857806888,
+          "noisy_limited_share": 0.0,
+          "noisy_sent_in_burst": 9466,
+          "noisy_served_in_burst": 1734,
+          "quiet_burst_failed": 0.8133874239350912,
+          "quiet_burst_p50_ms": 1326.3235050000048,
+          "quiet_burst_p99_ms": 2547.433319780024,
+          "quiet_calm_p50_ms": 4.781451500008416,
+          "quiet_calm_p99_ms": 9.890014250008505,
+          "quiet_requests_in_burst": 493
+        }
+      },
+      {
+        "capacity_qps": 528.8972944535766,
+        "events": 12921,
+        "fair": {
+          "noisy_failed_share": 0.0,
+          "noisy_limited_share": 0.945952868852459,
+          "noisy_sent_in_burst": 11712,
+          "noisy_served_in_burst": 633,
+          "quiet_burst_failed": 0.0,
+          "quiet_burst_p50_ms": 5.719168500007754,
+          "quiet_burst_p99_ms": 35.194574389993676,
+          "quiet_calm_p50_ms": 5.340388000007579,
+          "quiet_calm_p99_ms": 11.081166379996139,
+          "quiet_requests_in_burst": 708
+        },
+        "none": {
+          "noisy_failed_share": 0.7802254098360656,
+          "noisy_limited_share": 0.0,
+          "noisy_sent_in_burst": 11712,
+          "noisy_served_in_burst": 2574,
+          "quiet_burst_failed": 0.768361581920904,
+          "quiet_burst_p50_ms": 1483.133435500008,
+          "quiet_burst_p99_ms": 2150.5831750500047,
+          "quiet_calm_p50_ms": 5.279179000012846,
+          "quiet_calm_p99_ms": 9.435240289976146,
+          "quiet_requests_in_burst": 708
+        }
+      },
+      {
+        "capacity_qps": 531.5507948869894,
+        "events": 13185,
+        "fair": {
+          "noisy_failed_share": 0.0,
+          "noisy_limited_share": 0.9468386023294509,
+          "noisy_sent_in_burst": 12020,
+          "noisy_served_in_burst": 639,
+          "quiet_burst_failed": 0.0,
+          "quiet_burst_p50_ms": 5.508265999992545,
+          "quiet_burst_p99_ms": 15.809498560020089,
+          "quiet_calm_p50_ms": 4.868017500029964,
+          "quiet_calm_p99_ms": 11.129402099999204,
+          "quiet_requests_in_burst": 643
+        },
+        "none": {
+          "noisy_failed_share": 0.8100665557404326,
+          "noisy_limited_share": 0.0,
+          "noisy_sent_in_burst": 12020,
+          "noisy_served_in_burst": 2283,
+          "quiet_burst_failed": 0.8149300155520995,
+          "quiet_burst_p50_ms": 1485.2666929999714,
+          "quiet_burst_p99_ms": 2069.377969420003,
+          "quiet_calm_p50_ms": 5.030492499997763,
+          "quiet_calm_p99_ms": 9.493462199995408,
+          "quiet_requests_in_burst": 643
+        }
+      }
+    ],
+    "seeds": 3
+  },
+  "prepared": [
+    {
+      "fashion": {
+        "indexed": 2800,
+        "terms": 147
+      },
+      "home": {
+        "indexed": 2200,
+        "terms": 149
+      },
+      "outdoor": {
+        "indexed": 2400,
+        "terms": 136
+      },
+      "parts": {
+        "indexed": 2000,
+        "terms": 147
+      }
+    },
+    {
+      "fashion": {
+        "indexed": 2800,
+        "terms": 147
+      },
+      "home": {
+        "indexed": 2200,
+        "terms": 149
+      },
+      "outdoor": {
+        "indexed": 2400,
+        "terms": 136
+      },
+      "parts": {
+        "indexed": 2000,
+        "terms": 147
+      }
+    },
+    {
+      "fashion": {
+        "indexed": 2800,
+        "terms": 147
+      },
+      "home": {
+        "indexed": 2200,
+        "terms": 149
+      },
+      "outdoor": {
+        "indexed": 2400,
+        "terms": 136
+      },
+      "parts": {
+        "indexed": 2000,
+        "terms": 147
+      }
+    }
+  ],
+  "products": 9400,
+  "queries_per_seed": 1280,
+  "seeds": [
+    6101,
+    6102,
+    6103
+  ],
+  "shapes": {
+    "agent": 683,
+    "keyword": 1668,
+    "sentence": 1083,
+    "sku": 406
+  },
+  "tenants": [
+    "outdoor",
+    "fashion",
+    "parts",
+    "home"
+  ]
+}

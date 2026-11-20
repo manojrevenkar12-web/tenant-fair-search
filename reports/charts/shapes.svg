@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 426" width="760" height="426" font-family="Inter, Segoe UI, sans-serif">
+<rect width="760" height="426" fill="#fcfcfb"/>
+<text x="20" y="28" font-size="15" font-weight="600" fill="#1d2421">nDCG@10 by query shape</text>
+<text x="20" y="47" font-size="12" fill="#59615d">Graded against the hidden truth; 1.0 is the best possible order</text>
+<rect x="130" y="60" width="12" height="12" rx="2" fill="#2a78d6"/>
+<text x="147" y="70" font-size="12" fill="#1d2421">Routed + query understanding</text>
+<rect x="410" y="60" width="12" height="12" rx="2" fill="#eb6834"/>
+<text x="427" y="70" font-size="12" fill="#1d2421">Lexical (BM25) only</text>
+<rect x="130" y="80" width="12" height="12" rx="2" fill="#1baf7a"/>
+<text x="147" y="90" font-size="12" fill="#1d2421">Vector only</text>
+<rect x="410" y="80" width="12" height="12" rx="2" fill="#eda100"/>
+<text x="427" y="90" font-size="12" fill="#1d2421">Hybrid, fused, every query</text>
+<line x1="130.0" y1="104" x2="130.0" y2="410" stroke="#e3e6e4"/>
+<text x="130.0" y="422" font-size="11" text-anchor="middle" fill="#59615d">0.00</text>
+<line x1="270.0" y1="104" x2="270.0" y2="410" stroke="#e3e6e4"/>
+<text x="270.0" y="422" font-size="11" text-anchor="middle" fill="#59615d">0.25</text>
+<line x1="410.0" y1="104" x2="410.0" y2="410" stroke="#e3e6e4"/>
+<text x="410.0" y="422" font-size="11" text-anchor="middle" fill="#59615d">0.50</text>
+<line x1="550.0" y1="104" x2="550.0" y2="410" stroke="#e3e6e4"/>
+<text x="550.0" y="422" font-size="11" text-anchor="middle" fill="#59615d">0.75</text>
+<line x1="690.0" y1="104" x2="690.0" y2="410" stroke="#e3e6e4"/>
+<text x="690.0" y="422" font-size="11" text-anchor="middle" fill="#59615d">1.00</text>
+<text x="120" y="142.0" font-size="12" text-anchor="end" fill="#1d2421">Keywords</text>
+<rect x="130" y="110" width="488.5" height="12" rx="3" fill="#2a78d6"><title>Routed + query understanding, Keywords: 0.872</title></rect>
+<text x="624.5" y="120" font-size="11" font-weight="600" fill="#1d2421">0.87</text>
+<rect x="130" y="124" width="369.3" height="12" rx="3" fill="#eb6834"><title>Lexical (BM25) only, Keywords: 0.659</title></rect>
+<rect x="130" y="138" width="432.4" height="12" rx="3" fill="#1baf7a"><title>Vector only, Keywords: 0.772</title></rect>
+<rect x="130" y="152" width="449.6" height="12" rx="3" fill="#eda100"><title>Hybrid, fused, every query, Keywords: 0.803</title></rect>
+<text x="120" y="216.0" font-size="12" text-anchor="end" fill="#1d2421">Full sentences</text>
+<rect x="130" y="184" width="446.3" height="12" rx="3" fill="#2a78d6"><title>Routed + query understanding, Full sentences: 0.797</title></rect>
+<text x="582.3" y="194" font-size="11" font-weight="600" fill="#1d2421">0.80</text>
+<rect x="130" y="198" width="284.0" height="12" rx="3" fill="#eb6834"><title>Lexical (BM25) only, Full sentences: 0.507</title></rect>
+<rect x="130" y="212" width="327.3" height="12" rx="3" fill="#1baf7a"><title>Vector only, Full sentences: 0.584</title></rect>
+<rect x="130" y="226" width="337.9" height="12" rx="3" fill="#eda100"><title>Hybrid, fused, every query, Full sentences: 0.603</title></rect>
+<text x="120" y="290.0" font-size="12" text-anchor="end" fill="#1d2421">AI agents</text>
+<rect x="130" y="258" width="515.6" height="12" rx="3" fill="#2a78d6"><title>Routed + query understanding, AI agents: 0.921</title></rect>
+<text x="651.6" y="268" font-size="11" font-weight="600" fill="#1d2421">0.92</text>
+<rect x="130" y="272" width="429.6" height="12" rx="3" fill="#eb6834"><title>Lexical (BM25) only, AI agents: 0.767</title></rect>
+<rect x="130" y="286" width="499.6" height="12" rx="3" fill="#1baf7a"><title>Vector only, AI agents: 0.892</title></rect>
+<rect x="130" y="300" width="511.3" height="12" rx="3" fill="#eda100"><title>Hybrid, fused, every query, AI agents: 0.913</title></rect>
+<text x="120" y="364.0" font-size="12" text-anchor="end" fill="#1d2421">SKU lookups</text>
+<rect x="130" y="332" width="560.0" height="12" rx="3" fill="#2a78d6"><title>Routed + query understanding, SKU lookups: 1.000</title></rect>
+<text x="696.0" y="342" font-size="11" font-weight="600" fill="#1d2421">1.00</text>
+<rect x="130" y="346" width="560.0" height="12" rx="3" fill="#eb6834"><title>Lexical (BM25) only, SKU lookups: 1.000</title></rect>
+<rect x="130" y="360" width="1.0" height="12" rx="3" fill="#1baf7a"><title>Vector only, SKU lookups: 0.000</title></rect>
+<rect x="130" y="374" width="560.0" height="12" rx="3" fill="#eda100"><title>Hybrid, fused, every query, SKU lookups: 1.000</title></rect>
+</svg>

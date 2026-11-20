@@ -27,6 +27,7 @@ LABELS = {
     "routed": "Routed + query understanding",
 }
 SHAPE_LABELS = {"keyword": "Keywords", "sentence": "Full sentences", "agent": "AI agents", "sku": "SKU lookups"}
+SHAPE_IN_TEXT = {"keyword": "keywords", "sentence": "full sentences", "agent": "AI agents", "sku": "SKU lookups"}
 
 
 def load(name: str) -> dict | None:
@@ -50,7 +51,7 @@ def _svg(w: int, h: int, title: str, sub: str, body: list[str]) -> str:
 def chart_shapes(rep: dict) -> str:
     designs = [d for d in SERIES if d in rep["designs"]]
     shapes = [s for s in SHAPE_LABELS if s in rep["designs"]["routed"]["by_shape"]]
-    w, left, right, top = 760, 130, 70, 92
+    w, left, right, top = 760, 130, 70, 110
     bar, gap, group_gap = 12, 2, 18
     group_h = len(designs) * (bar + gap) + group_gap
     h = top + len(shapes) * group_h + 20
@@ -60,11 +61,10 @@ def chart_shapes(rep: dict) -> str:
         return x0 + v * (x1 - x0)
 
     body = []
-    lx = left
-    for d in designs:
-        body.append(f'<rect x="{lx}" y="62" width="12" height="12" rx="2" fill="{SERIES[d]}"/>')
-        body.append(f'<text x="{lx + 17}" y="72" font-size="12" fill="{INK}">{LABELS[d]}</text>')
-        lx += 17 + 7.2 * len(LABELS[d]) + 18
+    for j, d in enumerate(designs):
+        lx, ly = left + (j % 2) * 280, 60 + (j // 2) * 20
+        body.append(f'<rect x="{lx}" y="{ly}" width="12" height="12" rx="2" fill="{SERIES[d]}"/>')
+        body.append(f'<text x="{lx + 17}" y="{ly + 10}" font-size="12" fill="{INK}">{LABELS[d]}</text>')
     for t in (0.0, 0.25, 0.5, 0.75, 1.0):
         body.append(f'<line x1="{X(t):.1f}" y1="{top - 6}" x2="{X(t):.1f}" y2="{h - 16}" stroke="{GRID}"/>')
         body.append(f'<text x="{X(t):.1f}" y="{h - 4}" font-size="11" text-anchor="middle" fill="{MUTED}">{t:.2f}</text>')
@@ -131,9 +131,9 @@ def _headline(rep: dict, title: str) -> list[str]:
         lines.append(f"| {name} | " + " | ".join(cells) + " |")
 
     row("nDCG@10, all queries (95% interval)", lambda x: f"{x['ndcg']:.3f} ({x['ndcg_ci'][0]:.3f} to {x['ndcg_ci'][1]:.3f})")
-    for s, label in SHAPE_LABELS.items():
+    for s in SHAPE_LABELS:
         if s in d["routed"]["by_shape"]:
-            row(f"nDCG@10, {label.lower()}", lambda x, s=s: f"{x['by_shape'][s]:.3f}")
+            row(f"nDCG@10, {SHAPE_IN_TEXT[s]}", lambda x, s=s: f"{x['by_shape'][s]:.3f}")
     row("SKU lookups with the right product first", lambda x: _pct(x["sku_first"]))
     row("Top-10 results that break a stated constraint", lambda x: _pct(x["violations_top10"]))
     row("Queries with no results", lambda x: _pct(x["zero_results"]))
@@ -185,8 +185,8 @@ def block(dev: dict, held: dict | None, gate_dev: dict | None, gate_held: dict |
     lines = [START, "", "### Dashboard (development worlds)", "", *_headline(dev, "Development"), ""]
     lines += [
         f"{len(dev['seeds'])} simulated worlds, each with {len(dev['tenants'])} shops and {dev['products']:,} products; "
-        f"{dev['queries_per_seed']:,} graded queries a world ("
-        + ", ".join(f"{v} {SHAPE_LABELS[k].lower()}" for k, v in dev["shapes"].items())
+        f"{dev['queries_per_seed']:,} graded queries a world, {dev['queries_per_seed'] * len(dev['seeds']):,} in all ("
+        + ", ".join(f"{dev['shapes'][k]:,} {SHAPE_IN_TEXT[k]}" for k in SHAPE_LABELS if k in dev["shapes"])
         + ").",
         "",
         "![nDCG by query shape](reports/charts/shapes.svg)",

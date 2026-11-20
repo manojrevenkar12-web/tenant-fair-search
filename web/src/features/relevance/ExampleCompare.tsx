@@ -9,7 +9,7 @@ function Column({ title, ndcg, top, tone }: { title: string; ndcg: number; top: 
   return (
     <section aria-label={title} className="min-w-0">
       <div className="flex items-baseline justify-between border-b-rule pb-2" style={{ borderColor: tone }}>
-        <h3 className="text-body font-semibold">{title}</h3>
+        <h2 className="text-body font-semibold">{title}</h2>
         <span className="text-small text-muted">
           nDCG@10 <b className="text-ink">{num(ndcg, 2)}</b>
         </span>
