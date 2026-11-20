@@ -1,0 +1,69 @@
+# The simulated shops. Only the world reads this file. Merchants and shoppers name the same things with
+# different words; that gap is the hidden truth a lexical index cannot see and a learned model has to find.
+kinds:
+  outdoor:
+    sku_prefix: od
+    colours: {navy: [navy, dark blue], black: [black], red: [red], green: [green, olive], gray: [gray, grey], orange: [orange], yellow: [yellow]}
+    brands: [nordkamm, vela, alpenrot, fjellwerk, kestrel, tundra]
+    sizes: [xs, s, m, l, xl]
+    materials: [recycled polyester, nylon ripstop, merino wool, gore membrane, leather, recycled down]
+    uses: [hiking, camping, trekking, the city, rainy days, winter trips, mountain tours]
+    categories:
+      rain_jacket: {merchant: [rain jacket, hardshell jacket, waterproof shell], shopper: [rain jacket, raincoat, waterproof jacket, shell jacket, rain coat], features: [waterproof, breathable, lightweight, packable, windproof, recycled], price: [80, 320]}
+      down_jacket: {merchant: [down jacket, insulated jacket, puffer jacket], shopper: [puffer, down coat, warm jacket, winter jacket, quilted jacket], features: [warm, insulated, lightweight, packable, recycled, hooded], price: [120, 450]}
+      hiking_boot: {merchant: [hiking boot, trekking boot, mountain boot], shopper: [hiking boots, walking boots, trekking shoes, mountain boots, hillwalking boots], features: [waterproof, leather, durable, ankle support, vibram sole, breathable], price: [90, 280], sizes: ["40", "41", "42", "43", "44", "45", "46"]}
+      trail_shoe: {merchant: [trail running shoe, trail shoe, off-road runner], shopper: [trail runners, trail sneakers, running shoes for trails, offroad trainers], features: [grippy, lightweight, cushioned, breathable, waterproof], price: [70, 190], sizes: ["40", "41", "42", "43", "44", "45", "46"]}
+      backpack: {merchant: [backpack, daypack, rucksack], shopper: [rucksack, day bag, hiking bag, backpack, knapsack], features: [lightweight, waterproof, durable, padded, ventilated, recycled], price: [40, 220]}
+      tent: {merchant: [dome tent, tunnel tent, backpacking tent], shopper: [tent, camping tent, two person tent, festival tent], features: [lightweight, freestanding, waterproof, four season, quick pitch], price: [90, 600]}
+      sleeping_bag: {merchant: [sleeping bag, mummy bag], shopper: [sleep sack, sleeping bag, camping bag, bedroll], features: [warm, compact, synthetic fill, down fill, lightweight], price: [60, 380]}
+      fleece: {merchant: [fleece jacket, fleece midlayer], shopper: [fleece, fleece pullover, warm layer, zip fleece], features: [warm, recycled, breathable, soft, quick drying], price: [40, 160]}
+  fashion:
+    sku_prefix: fx
+    colours: {black: [black], white: [white, off white], navy: [navy, dark blue], beige: [beige, camel], red: [red, burgundy], green: [green, olive], gray: [gray, grey]}
+    brands: [maison lune, arvo, kotte, riviera, nightjar, saltwater]
+    sizes: [xs, s, m, l, xl]
+    materials: [organic cotton, linen, merino wool, recycled polyester, leather, viscose]
+    uses: [the office, weekends, summer, festivals, everyday wear, evenings out]
+    categories:
+      sneaker: {merchant: [low-top sneaker, court sneaker, canvas sneaker], shopper: [trainers, sneakers, kicks, white shoes, casual shoes], features: [leather, canvas, chunky, minimal, vegan], price: [60, 220], sizes: ["37", "38", "39", "40", "41", "42", "43", "44"]}
+      hoodie: {merchant: [hooded sweatshirt, zip hoodie], shopper: [hoodie, sweatshirt with hood, pullover hoodie, hooded top], features: [oversized, organic cotton, brushed, relaxed, cropped], price: [40, 140]}
+      jeans: {merchant: [denim jeans, slim jeans, straight leg jeans], shopper: [jeans, denims, blue jeans, denim trousers], features: [slim, stretch, high waisted, relaxed, vintage wash], price: [50, 180]}
+      dress: {merchant: [midi dress, wrap dress, slip dress], shopper: [dress, summer dress, frock, party dress], features: [linen, floral, satin, flowy, sleeveless], price: [45, 260]}
+      t_shirt: {merchant: [crew neck t-shirt, jersey t-shirt], shopper: [tee, t-shirt, basic top, plain shirt], features: [organic cotton, boxy, slim, heavyweight, striped], price: [15, 70]}
+      coat: {merchant: [wool coat, trench coat, overcoat], shopper: [coat, winter coat, mac, long coat], features: [wool, double breasted, belted, oversized, water repellent], price: [120, 520]}
+      blazer: {merchant: [tailored blazer, single breasted blazer], shopper: [blazer, suit jacket, sport coat, smart jacket], features: [linen, wool, relaxed, tailored, checked], price: [90, 380]}
+      knit: {merchant: [knitted jumper, merino sweater, cable knit], shopper: [jumper, sweater, knitwear, pullover], features: [merino, cashmere, chunky, ribbed, crew neck], price: [50, 260]}
+  parts:
+    sku_prefix: pt
+    colours: {silver: [silver, steel], black: [black], yellow: [yellow], blue: [blue], red: [red]}
+    brands: [ferrolux, techna, bauwerk, normteil, precisa, kraftline]
+    sizes: [m4, m5, m6, m8, m10, m12]
+    materials: [carbon steel, stainless steel, brass, nylon, nitrile rubber, ceramic]
+    uses: [machine maintenance, assembly lines, pumps, hydraulics, conveyors, workshop repairs]
+    categories:
+      ball_bearing: {merchant: [deep groove ball bearing, radial ball bearing], shopper: [bearing, ball bearing, roller bearing, wheel bearing], features: [sealed, stainless, high speed, low noise, greased], price: [3, 90]}
+      hex_bolt: {merchant: [hexagon head bolt, hex head screw], shopper: [hex bolt, bolt, hex screw, machine bolt], features: [stainless, galvanized, zinc plated, high tensile, fine thread], price: [1, 25]}
+      o_ring: {merchant: [nitrile o-ring, fkm o-ring seal], shopper: [o ring, rubber seal, gasket ring, sealing ring], features: [oil resistant, heat resistant, food grade, chemical resistant], price: [1, 15]}
+      cable_tie: {merchant: [nylon cable tie, releasable cable tie], shopper: [zip tie, cable tie, tie wrap, zip ties], features: [uv resistant, heavy duty, releasable, heat stabilised], price: [2, 30]}
+      drill_bit: {merchant: [hss twist drill, cobalt drill bit], shopper: [drill bit, metal drill, twist drill, drill for steel], features: [cobalt, titanium coated, split point, long series], price: [3, 60]}
+      hose_clamp: {merchant: [worm drive hose clamp, spring band clamp], shopper: [hose clip, jubilee clip, pipe clamp, hose clamp], features: [stainless, galvanized, heavy duty, quick release], price: [1, 20]}
+      fuse: {merchant: [cartridge fuse, blade fuse], shopper: [fuse, car fuse, glass fuse, fuse link], features: [fast acting, slow blow, high voltage, ceramic], price: [1, 18]}
+      pipe_fitting: {merchant: [compression fitting, threaded elbow fitting], shopper: [pipe connector, elbow joint, pipe fitting, coupling], features: [brass, stainless, push fit, threaded], price: [3, 45]}
+  home:
+    sku_prefix: hm
+    colours: {white: [white, off white], black: [black], gray: [gray, grey], green: [green, olive], beige: [beige, sand], blue: [blue, dark blue]}
+    brands: [haldor, lumo, casa vetra, nordhem, oaklane, softnest]
+    sizes: [small, medium, large]
+    materials: [oak, linen, wool, ceramic, brass, organic cotton]
+    uses: [the living room, the bedroom, small flats, the kitchen, guest rooms, reading]
+    categories:
+      sofa: {merchant: [three seater sofa, corner sofa, loveseat], shopper: [couch, settee, sofa, sectional], features: [velvet, linen, modular, sleeper, deep seat], price: [400, 2400]}
+      lamp: {merchant: [table lamp, desk lamp, floor lamp], shopper: [lamp, reading light, bedside light, standing lamp], features: [dimmable, brass, ceramic, adjustable, rattan], price: [30, 380]}
+      rug: {merchant: [area rug, runner rug, wool rug], shopper: [carpet, rug, floor mat, hallway runner], features: [wool, washable, jute, low pile, shaggy], price: [50, 900]}
+      duvet: {merchant: [duvet, all seasons duvet], shopper: [comforter, quilt, duvet, doona], features: [down, hypoallergenic, lightweight, warm, cooling], price: [40, 420]}
+      frying_pan: {merchant: [frying pan, saute pan], shopper: [skillet, pan, fry pan, frying pan], features: [non stick, cast iron, induction ready, stainless, oven safe], price: [20, 220]}
+      towel: {merchant: [bath towel, hand towel set], shopper: [towels, bath sheet, towel set, hand towel], features: [organic cotton, quick drying, waffle, plush, linen], price: [12, 120]}
+      shelf: {merchant: [bookshelf, shelving unit, wall shelf], shopper: [bookcase, shelves, storage rack, book rack], features: [oak, metal, modular, wall mounted, slim], price: [40, 700]}
+      curtain: {merchant: [blackout curtain, sheer curtain], shopper: [drapes, curtains, window curtain, blackout drapes], features: [blackout, linen, thermal, sheer, velvet], price: [25, 260]}
+
+filler: [designed, made, built, finished, crafted, tested, made to last, an easy choice, simple to care for, a favourite]

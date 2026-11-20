@@ -1,0 +1,9 @@
+# Release gate. Set on the development worlds; the held-out worlds are checked once against the same numbers.
+min_gain_over_lexical: 0.05      # nDCG@10, lower bound of the paired 95% interval
+max_loss_vs_hybrid: 0.01         # routed may not be worse than fusing every query by more than this
+min_sku_first: 0.95
+max_violations_top10: 0.08
+max_cost_vs_hybrid: 1.0
+shape_tolerance: 0.02
+max_quiet_burst_p99_ms: 250
+max_quiet_burst_failed: 0.01

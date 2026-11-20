@@ -1,0 +1,51 @@
+name: evaluate
+on:
+  workflow_dispatch:
+    inputs:
+      set:
+        description: "dev or heldout (the held-out worlds run once; the lock is committed afterwards)"
+        required: true
+        default: dev
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.15.3
+        env:
+          discovery.type: single-node
+          xpack.security.enabled: "false"
+          ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+        ports: ["9200:9200"]
+        options: >-
+          --health-cmd "curl -fs http://localhost:9200/_cluster/health || exit 1"
+          --health-interval 10s --health-timeout 5s --health-retries 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with: {distribution: temurin, java-version: "21", cache: sbt}
+      - uses: sbt/setup-sbt@v1
+      - uses: actions/setup-python@v6
+        with: {python-version: "3.13", cache: pip}
+      - run: sbt -Dsbt.color=false "service/assembly"
+      - run: pip install -r requirements-dev.txt
+      - name: start the service against the cluster
+        run: |
+          TFS_EVAL_OVERRIDES=true nohup java -jar service/target/scala-3.3.4/tenant-fair-search.jar > service.log 2>&1 &
+          for i in $(seq 1 90); do curl -fs localhost:8080/health && exit 0; sleep 1; done
+          cat service.log; exit 1
+      - name: evaluate
+        run: |
+          if [ "${{ inputs.set }}" = "heldout" ]; then python -m tfs.eval.cli heldout; else python -m tfs.eval.cli evaluate; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reports-${{ inputs.set }}
+          path: |
+            reports/
+            README.md
+            config/heldout.lock
+          if-no-files-found: ignore
+      - if: always()
+        run: tail -n 80 service.log

@@ -12,16 +12,105 @@
   "text": {
     "tokenPattern": "[a-z0-9]+(?:-[a-z0-9]+)*",
     "minTokenLength": 2,
-    "stopwords": ["a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "from", "has", "have", "i", "im", "in", "into", "is", "it", "its", "me", "my", "need", "of", "on", "or", "our", "please", "show", "so", "some", "that", "the", "their", "them", "then", "there", "these", "they", "this", "to", "want", "was", "we", "were", "which", "will", "with", "would", "you", "your", "looking", "find", "something", "any", "can", "could", "get", "like", "one", "ones", "good", "nice"]
+    "stopwords": [
+      "a",
+      "an",
+      "and",
+      "are",
+      "as",
+      "at",
+      "be",
+      "but",
+      "by",
+      "for",
+      "from",
+      "has",
+      "have",
+      "i",
+      "im",
+      "in",
+      "into",
+      "is",
+      "it",
+      "its",
+      "me",
+      "my",
+      "need",
+      "of",
+      "on",
+      "or",
+      "our",
+      "please",
+      "show",
+      "so",
+      "some",
+      "that",
+      "the",
+      "their",
+      "them",
+      "then",
+      "there",
+      "these",
+      "they",
+      "this",
+      "to",
+      "want",
+      "was",
+      "we",
+      "were",
+      "which",
+      "will",
+      "with",
+      "would",
+      "you",
+      "your",
+      "looking",
+      "find",
+      "something",
+      "any",
+      "can",
+      "could",
+      "get",
+      "like",
+      "one",
+      "ones",
+      "good",
+      "nice"
+    ]
   },
   "understanding": {
     "skuPattern": "^[a-z]{2,4}-[0-9]{4,6}$",
     "sentenceMinTokens": 5,
-    "maxPriceWords": ["under", "below", "less than", "cheaper than", "up to", "max", "at most", "no more than"],
-    "minPriceWords": ["over", "above", "more than", "at least", "from"],
-    "currencyWords": ["eur", "euro", "euros"],
-    "inStockPhrases": ["in stock", "available now", "ships today"],
-    "sizeWords": ["size"],
+    "maxPriceWords": [
+      "under",
+      "below",
+      "less than",
+      "cheaper than",
+      "up to",
+      "max",
+      "at most",
+      "no more than"
+    ],
+    "minPriceWords": [
+      "over",
+      "above",
+      "more than",
+      "at least",
+      "from"
+    ],
+    "currencyWords": [
+      "eur",
+      "euro",
+      "euros"
+    ],
+    "inStockPhrases": [
+      "in stock",
+      "available now",
+      "ships today"
+    ],
+    "sizeWords": [
+      "size"
+    ],
     "colourSynonyms": {
       "dark blue": "navy",
       "grey": "gray",
@@ -35,21 +124,65 @@
     "candidates": 50,
     "knnNumCandidates": 200,
     "rrfRankConstant": 60,
-    "lexicalFields": ["title^3", "brand.text^2", "description", "sku^5"],
+    "lexicalFields": [
+      "title^3",
+      "brand.text^2",
+      "description",
+      "sku^5"
+    ],
     "defaultDesign": "routed",
     "weights": {
-      "keyword": {"lexical": 1.0, "semantic": 1.0},
-      "sentence": {"lexical": 0.6, "semantic": 1.0},
-      "agent": {"lexical": 0.6, "semantic": 1.0}
+      "keyword": {
+        "lexical": 1.0,
+        "semantic": 1.0
+      },
+      "sentence": {
+        "lexical": 0.6,
+        "semantic": 1.0
+      },
+      "agent": {
+        "lexical": 0.6,
+        "semantic": 1.0
+      }
     }
   },
   "designs": {
-    "lexical": {"lexical": true, "semantic": false, "understand": false, "route": false},
-    "semantic": {"lexical": false, "semantic": true, "understand": false, "route": false},
-    "hybrid_rrf": {"lexical": true, "semantic": true, "understand": false, "route": false},
-    "hybrid_with_understanding": {"lexical": true, "semantic": true, "understand": true, "route": false},
-    "routed_without_understanding": {"lexical": true, "semantic": true, "understand": false, "route": true},
-    "routed": {"lexical": true, "semantic": true, "understand": true, "route": true}
+    "lexical": {
+      "lexical": true,
+      "semantic": false,
+      "understand": false,
+      "route": false
+    },
+    "semantic": {
+      "lexical": false,
+      "semantic": true,
+      "understand": false,
+      "route": false
+    },
+    "hybrid_rrf": {
+      "lexical": true,
+      "semantic": true,
+      "understand": false,
+      "route": false
+    },
+    "hybrid_with_understanding": {
+      "lexical": true,
+      "semantic": true,
+      "understand": true,
+      "route": false
+    },
+    "routed_without_understanding": {
+      "lexical": true,
+      "semantic": true,
+      "understand": false,
+      "route": true
+    },
+    "routed": {
+      "lexical": true,
+      "semantic": true,
+      "understand": true,
+      "route": true
+    }
   },
   "admission": {
     "mode": "fair",
@@ -59,7 +192,10 @@
     "burst": 80.0
   },
   "embedding": {
-    "dim": 32
+    "dim": 32,
+    "dropNumeric": true,
+    "titleWeight": 2.0,
+    "logWeight": 1.0
   },
   "cost": {
     "nodeEurPerHour": 1.2,

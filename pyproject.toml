@@ -1,0 +1,17 @@
+[project]
+name = "tenant-fair-search"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 160
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+"tfs/eval/report.py" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
