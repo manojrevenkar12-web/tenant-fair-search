@@ -1,0 +1,577 @@
+{
+  "comparisons": {
+    "routed - hybrid_rrf": {
+      "ci": [
+        0.08001128234495022,
+        0.0937301510852395
+      ],
+      "mean": 0.08695560556936746,
+      "n": 3840
+    },
+    "routed - hybrid_with_understanding": {
+      "ci": [
+        0.00441999139127414,
+        0.008042659140259648
+      ],
+      "mean": 0.006241815102871732,
+      "n": 3840
+    },
+    "routed - lexical": {
+      "ci": [
+        0.20117355870557235,
+        0.22299349309112002
+      ],
+      "mean": 0.21192725610000837,
+      "n": 3840
+    },
+    "routed - routed_without_understanding": {
+      "ci": [
+        0.07388516902160593,
+        0.08710960542793092
+      ],
+      "mean": 0.08043789237026064,
+      "n": 3840
+    },
+    "routed - semantic": {
+      "ci": [
+        0.20635345553450649,
+        0.22977766167464428
+      ],
+      "mean": 0.21797555180982447,
+      "n": 3840
+    }
+  },
+  "designs": {
+    "hybrid_rrf": {
+      "by_shape": {
+        "agent": 0.9296056643070518,
+        "keyword": 0.8021541301454488,
+        "sentence": 0.6193946151482519,
+        "sku": 1.0
+      },
+      "cost_per_1000_eur": 0.0008825846354166666,
+      "es_ms": 21.18203125,
+      "first_ok": 0.8167006109979633,
+      "ndcg": 0.795113092931269,
+      "ndcg_ci": [
+        0.7863317998952932,
+        0.8038074164817478
+      ],
+      "plans": {
+        "hybrid": 3840
+      },
+      "queries": 3840,
+      "sku_first": 1.0,
+      "violations_top10": 0.17326617364467478,
+      "zero_results": 0.0
+    },
+    "hybrid_with_understanding": {
+      "by_shape": {
+        "agent": 0.9285306356682295,
+        "keyword": 0.8799303829415229,
+        "sentence": 0.7882175372661736,
+        "sku": 1.0
+      },
+      "cost_per_1000_eur": 0.0007782335069444442,
+      "es_ms": 18.677604166666665,
+      "first_ok": 0.9089322083212104,
+      "ndcg": 0.8758268833977648,
+      "ndcg_ci": [
+        0.8686925958484066,
+        0.8829748625502386
+      ],
+      "plans": {
+        "hybrid": 3840
+      },
+      "queries": 3840,
+      "sku_first": 1.0,
+      "violations_top10": 0.05482405033791657,
+      "zero_results": 0.00026041666666666666
+    },
+    "lexical": {
+      "by_shape": {
+        "agent": 0.772881890671169,
+        "keyword": 0.6475004672000332,
+        "sentence": 0.514626043989278,
+        "sku": 1.0
+      },
+      "cost_per_1000_eur": 0.0005319552951388888,
+      "es_ms": 12.766927083333334,
+      "first_ok": 0.6485306953738725,
+      "ndcg": 0.6701414424006281,
+      "ndcg_ci": [
+        0.6577337800056675,
+        0.6818682544548288
+      ],
+      "plans": {
+        "lexical": 3840
+      },
+      "queries": 3840,
+      "sku_first": 1.0,
+      "violations_top10": 0.17981191222570533,
+      "zero_results": 0.05963541666666667
+    },
+    "routed": {
+      "by_shape": {
+        "agent": 0.931592654627426,
+        "keyword": 0.8798150748901369,
+        "sentence": 0.8089470438617425,
+        "sku": 1.0
+      },
+      "cost_per_1000_eur": 0.0006704210069444443,
+      "es_ms": 16.090104166666666,
+      "first_ok": 0.9164969450101833,
+      "ndcg": 0.8820686985006365,
+      "ndcg_ci": [
+        0.875255173443327,
+        0.8893428338454553
+      ],
+      "plans": {
+        "hybrid": 3437,
+        "sku": 403
+      },
+      "queries": 3840,
+      "sku_first": 1.0,
+      "violations_top10": 0.05558144954556048,
+      "zero_results": 0.00026041666666666666
+    },
+    "routed_without_understanding": {
+      "by_shape": {
+        "agent": 0.9328997483247295,
+        "keyword": 0.8026301595124554,
+        "sentence": 0.6400333175890429,
+        "sku": 1.0
+      },
+      "cost_per_1000_eur": 0.0007686523437499999,
+      "es_ms": 18.44765625,
+      "first_ok": 0.826592958975851,
+      "ndcg": 0.8016308061303759,
+      "ndcg_ci": [
+        0.7931788977254521,
+        0.8102760506170512
+      ],
+      "plans": {
+        "hybrid": 3437,
+        "sku": 403
+      },
+      "queries": 3840,
+      "sku_first": 1.0,
+      "violations_top10": 0.18264135561637454,
+      "zero_results": 0.0
+    },
+    "semantic": {
+      "by_shape": {
+        "agent": 0.8993143955221345,
+        "keyword": 0.7671884577785149,
+        "sentence": 0.6002601765194473,
+        "sku": 0.0
+      },
+      "cost_per_1000_eur": 0.0003487630208333333,
+      "es_ms": 8.3703125,
+      "first_ok": 0.8021530404422461,
+      "ndcg": 0.664093146690812,
+      "ndcg_ci": [
+        0.6522555446682688,
+        0.6755979467044563
+      ],
+      "plans": {
+        "semantic": 3840
+      },
+      "queries": 3840,
+      "sku_first": 0.0,
+      "violations_top10": 0.2023525301345135,
+      "zero_results": 0.10494791666666667
+    }
+  },
+  "examples": [
+    {
+      "filters": null,
+      "lexical": {
+        "ndcg": 0.0,
+        "top": []
+      },
+      "plan": "hybrid",
+      "query": "pipe connector",
+      "routed": {
+        "ndcg": 1.0,
+        "top": [
+          {
+            "grade": 3,
+            "price": 3.32,
+            "title": "Normteil Push Fit Compression Fitting"
+          },
+          {
+            "grade": 3,
+            "price": 14.41,
+            "title": "Normteil Brass Compression Fitting"
+          },
+          {
+            "grade": 3,
+            "price": 11.08,
+            "title": "Normteil Push Fit Threaded Elbow Fitting"
+          },
+          {
+            "grade": 3,
+            "price": 3.65,
+            "title": "Normteil Brass Compression Fitting"
+          },
+          {
+            "grade": 3,
+            "price": 4.6,
+            "title": "Normteil Push Fit Blue Compression Fitting"
+          }
+        ]
+      },
+      "shape": "keyword",
+      "tenant": "parts",
+      "understood": {
+        "filters": {},
+        "text": "pipe connector"
+      }
+    },
+    {
+      "filters": null,
+      "lexical": {
+        "ndcg": 0.0,
+        "top": [
+          {
+            "grade": 0,
+            "price": 96.47,
+            "title": "Kestrel Durable Trekking Boot"
+          },
+          {
+            "grade": 0,
+            "price": 264.88,
+            "title": "Kestrel Leather Trekking Boot"
+          },
+          {
+            "grade": 0,
+            "price": 234.55,
+            "title": "Kestrel Durable Trekking Boot"
+          },
+          {
+            "grade": 0,
+            "price": 213.68,
+            "title": "Kestrel Durable Gray Trekking Boot"
+          },
+          {
+            "grade": 0,
+            "price": 114.5,
+            "title": "Kestrel Durable Yellow Trekking Boot"
+          }
+        ]
+      },
+      "plan": "hybrid",
+      "query": "i need a camping bag that works for trekking from kestrel",
+      "routed": {
+        "ndcg": 1.0,
+        "top": [
+          {
+            "grade": 3,
+            "price": 248.7,
+            "title": "Kestrel Compact Black Mummy Bag"
+          },
+          {
+            "grade": 3,
+            "price": 128.23,
+            "title": "Kestrel Compact Sleeping Bag"
+          },
+          {
+            "grade": 3,
+            "price": 205.89,
+            "title": "Kestrel Down Fill Mummy Bag"
+          },
+          {
+            "grade": 3,
+            "price": 90.41,
+            "title": "Kestrel Lightweight Black Mummy Bag"
+          },
+          {
+            "grade": 3,
+            "price": 105.82,
+            "title": "Kestrel Synthetic Fill Mummy Bag"
+          }
+        ]
+      },
+      "shape": "sentence",
+      "tenant": "outdoor",
+      "understood": {
+        "filters": {
+          "brand": "kestrel"
+        },
+        "text": "i need a camping bag that works for trekking from"
+      }
+    },
+    {
+      "filters": {
+        "colour": "blue",
+        "inStock": true
+      },
+      "lexical": {
+        "ndcg": 0.0,
+        "top": []
+      },
+      "plan": "hybrid",
+      "query": "coupling",
+      "routed": {
+        "ndcg": 1.0,
+        "top": [
+          {
+            "grade": 3,
+            "price": 34.59,
+            "title": "Bauwerk Push Fit Blue Threaded Elbow Fitting"
+          },
+          {
+            "grade": 3,
+            "price": 11.08,
+            "title": "Normteil Push Fit Threaded Elbow Fitting"
+          },
+          {
+            "grade": 3,
+            "price": 21.11,
+            "title": "Techna Push Fit Blue Threaded Elbow Fitting"
+          },
+          {
+            "grade": 3,
+            "price": 5.59,
+            "title": "Ferrolux Brass Blue Compression Fitting"
+          },
+          {
+            "grade": 3,
+            "price": 9.31,
+            "title": "Precisa Push Fit Blue Threaded Elbow Fitting"
+          }
+        ]
+      },
+      "shape": "agent",
+      "tenant": "parts",
+      "understood": {
+        "filters": {
+          "colour": "blue",
+          "inStock": true
+        },
+        "text": "coupling"
+      }
+    },
+    {
+      "filters": null,
+      "lexical": {
+        "ndcg": 1.0,
+        "top": [
+          {
+            "grade": 3,
+            "price": 1.88,
+            "title": "Techna Fine Thread Hexagon Head Bolt"
+          }
+        ]
+      },
+      "plan": "sku",
+      "query": "PT-48043",
+      "routed": {
+        "ndcg": 1.0,
+        "top": [
+          {
+            "grade": 3,
+            "price": 1.88,
+            "title": "Techna Fine Thread Hexagon Head Bolt"
+          }
+        ]
+      },
+      "shape": "sku",
+      "tenant": "parts",
+      "understood": {
+        "filters": {},
+        "text": "PT-48043"
+      }
+    }
+  ],
+  "load": {
+    "capacity_qps": 478.46409393222365,
+    "fair": {
+      "noisy_failed_share": 0.0,
+      "noisy_limited_share": 0.9397508812886924,
+      "noisy_sent_in_burst": 10625.0,
+      "noisy_served_in_burst": 637.6666666666666,
+      "quiet_burst_failed": 0.0,
+      "quiet_burst_p50_ms": 5.767065333297221,
+      "quiet_burst_p99_ms": 17.526640826682915,
+      "quiet_calm_p50_ms": 5.271502833342841,
+      "quiet_calm_p99_ms": 10.827159049996837,
+      "quiet_requests_in_burst": 593.0
+    },
+    "none": {
+      "noisy_failed_share": 0.7589167595144198,
+      "noisy_limited_share": 0.0,
+      "noisy_sent_in_burst": 10625.0,
+      "noisy_served_in_burst": 2572.0,
+      "quiet_burst_failed": 0.7447972933762844,
+      "quiet_burst_p50_ms": 1735.3009428333244,
+      "quiet_burst_p99_ms": 2874.6677323099807,
+      "quiet_calm_p50_ms": 5.03327999995425,
+      "quiet_calm_p99_ms": 9.055195379986571,
+      "quiet_requests_in_burst": 593.0
+    },
+    "per_seed": [
+      {
+        "capacity_qps": 433.82000612238573,
+        "events": 10727,
+        "fair": {
+          "noisy_failed_share": 0.0,
+          "noisy_limited_share": 0.9346980552712385,
+          "noisy_sent_in_burst": 9770,
+          "noisy_served_in_burst": 638,
+          "quiet_burst_failed": 0.0,
+          "quiet_burst_p50_ms": 5.686232499954258,
+          "quiet_burst_p99_ms": 18.060635289994586,
+          "quiet_calm_p50_ms": 5.392778500009854,
+          "quiet_calm_p99_ms": 10.734348290002355,
+          "quiet_requests_in_burst": 538
+        },
+        "none": {
+          "noisy_failed_share": 0.776560900716479,
+          "noisy_limited_share": 0.0,
+          "noisy_sent_in_burst": 9770,
+          "noisy_served_in_burst": 2183,
+          "quiet_burst_failed": 0.7527881040892194,
+          "quiet_burst_p50_ms": 1851.5880119999792,
+          "quiet_burst_p99_ms": 3759.782917279982,
+          "quiet_calm_p50_ms": 5.048212999980706,
+          "quiet_calm_p99_ms": 9.017309150040091,
+          "quiet_requests_in_burst": 538
+        }
+      },
+      {
+        "capacity_qps": 507.0993512093121,
+        "events": 12528,
+        "fair": {
+          "noisy_failed_share": 0.0,
+          "noisy_limited_share": 0.9437945289823203,
+          "noisy_sent_in_burst": 11369,
+          "noisy_served_in_burst": 639,
+          "quiet_burst_failed": 0.0,
+          "quiet_burst_p50_ms": 5.7691609999892535,
+          "quiet_burst_p99_ms": 20.188053240012692,
+          "quiet_calm_p50_ms": 5.428743000038594,
+          "quiet_calm_p99_ms": 11.585946999957741,
+          "quiet_requests_in_burst": 647
+        },
+        "none": {
+          "noisy_failed_share": 0.7361245492127716,
+          "noisy_limited_share": 0.0,
+          "noisy_sent_in_burst": 11369,
+          "noisy_served_in_burst": 3000,
+          "quiet_burst_failed": 0.7156105100463679,
+          "quiet_burst_p50_ms": 1644.9891545000241,
+          "quiet_burst_p99_ms": 2770.1036730499545,
+          "quiet_calm_p50_ms": 4.934206999905655,
+          "quiet_calm_p99_ms": 8.805922999954419,
+          "quiet_requests_in_burst": 647
+        }
+      },
+      {
+        "capacity_qps": 494.47292446497306,
+        "events": 11820,
+        "fair": {
+          "noisy_failed_share": 0.0,
+          "noisy_limited_share": 0.9407600596125186,
+          "noisy_sent_in_burst": 10736,
+          "noisy_served_in_burst": 636,
+          "quiet_burst_failed": 0.0,
+          "quiet_burst_p50_ms": 5.8458024999481495,
+          "quiet_burst_p99_ms": 14.331233950041467,
+          "quiet_calm_p50_ms": 4.992986999980076,
+          "quiet_calm_p99_ms": 10.161181860030414,
+          "quiet_requests_in_burst": 594
+        },
+        "none": {
+          "noisy_failed_share": 0.7640648286140089,
+          "noisy_limited_share": 0.0,
+          "noisy_sent_in_burst": 10736,
+          "noisy_served_in_burst": 2533,
+          "quiet_burst_failed": 0.765993265993266,
+          "quiet_burst_p50_ms": 1709.3256619999693,
+          "quiet_burst_p99_ms": 2094.116606600005,
+          "quiet_calm_p50_ms": 5.117419999976391,
+          "quiet_calm_p99_ms": 9.342353989965204,
+          "quiet_requests_in_burst": 594
+        }
+      }
+    ],
+    "seeds": 3
+  },
+  "prepared": [
+    {
+      "fashion": {
+        "indexed": 2800,
+        "terms": 147
+      },
+      "home": {
+        "indexed": 2200,
+        "terms": 149
+      },
+      "outdoor": {
+        "indexed": 2400,
+        "terms": 136
+      },
+      "parts": {
+        "indexed": 2000,
+        "terms": 147
+      }
+    },
+    {
+      "fashion": {
+        "indexed": 2800,
+        "terms": 147
+      },
+      "home": {
+        "indexed": 2200,
+        "terms": 149
+      },
+      "outdoor": {
+        "indexed": 2400,
+        "terms": 136
+      },
+      "parts": {
+        "indexed": 2000,
+        "terms": 147
+      }
+    },
+    {
+      "fashion": {
+        "indexed": 2800,
+        "terms": 147
+      },
+      "home": {
+        "indexed": 2200,
+        "terms": 149
+      },
+      "outdoor": {
+        "indexed": 2400,
+        "terms": 136
+      },
+      "parts": {
+        "indexed": 2000,
+        "terms": 147
+      }
+    }
+  ],
+  "products": 9400,
+  "queries_per_seed": 1280,
+  "seeds": [
+    6201,
+    6202,
+    6203
+  ],
+  "shapes": {
+    "agent": 688,
+    "keyword": 1685,
+    "sentence": 1064,
+    "sku": 403
+  },
+  "tenants": [
+    "outdoor",
+    "fashion",
+    "parts",
+    "home"
+  ]
+}

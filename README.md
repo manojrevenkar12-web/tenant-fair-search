@@ -73,6 +73,35 @@ Measured capacity of the service and a one-node cluster on the CI runner: about 
 
 Gate (`config/gate.yaml`) on the development worlds: **passed**.
 
+### Held-out worlds (run once)
+
+| Held-out | Routed + query understanding | Hybrid, fused, every query | Lexical (BM25) only |
+|---|---:|---:|---:|
+| nDCG@10, all queries (95% interval) | **0.882 (0.875 to 0.889)** | 0.795 (0.786 to 0.804) | 0.670 (0.658 to 0.682) |
+| nDCG@10, keywords | **0.880** | 0.802 | 0.648 |
+| nDCG@10, full sentences | **0.809** | 0.619 | 0.515 |
+| nDCG@10, AI agents | **0.932** | 0.930 | 0.773 |
+| nDCG@10, SKU lookups | **1.000** | 1.000 | 1.000 |
+| SKU lookups with the right product first | **100.0%** | 100.0% | 100.0% |
+| Top-10 results that break a stated constraint | **5.6%** | 17.3% | 18.0% |
+| Queries with no results | **0.0%** | 0.0% | 6.0% |
+| Cluster time per query | **16.1 ms** | 21.2 ms | 12.8 ms |
+| Cluster cost per 1,000 queries | **€0.0007** | €0.0009 | €0.0005 |
+
+Measured capacity of the service and a one-node cluster on the CI runner: about **478 searches a second**. During the burst one shop's agent sends 1.6 times that, while the other three shops keep a steady trickle.
+
+| While one shop's agent bursts | Per-tenant admission | One shared queue |
+|---|---:|---:|
+| Other shops' p50 latency, before the burst | 5 ms | 5 ms |
+| Other shops' p99 latency, before the burst | 11 ms | 9 ms |
+| Other shops' p50 latency, during the burst | **6 ms** | 1,735 ms |
+| Other shops' p99 latency, during the burst | **18 ms** | 2,875 ms |
+| Other shops' searches that failed during the burst | **0.0%** | 74.5% |
+| Agent's searches answered 429 (retry later) | 94.0% | 0.0% |
+| Agent's searches that timed out or failed | 0.0% | 75.9% |
+
+Gate on the held-out worlds: **passed**.
+
 <!-- results:end -->
 
 ## What is in the box
