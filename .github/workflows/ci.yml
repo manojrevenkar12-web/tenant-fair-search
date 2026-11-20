@@ -24,8 +24,10 @@ jobs:
       - run: ruff check .
       - name: world, term model, metrics, gate, generated README
         run: python -m pytest -q
-      - name: README results block matches the committed reports
-        run: python -m tfs.eval.cli readme --check
+      - name: README results block matches the committed reports; both gates pass
+        run: python -m tfs.eval.cli readme --check && python -m tfs.eval.cli gate && python -m tfs.eval.cli gate --heldout
+      - name: the held-out worlds ran once and are locked
+        run: test -f config/heldout.lock && test -f reports/heldout.json && ! python -m tfs.eval.cli heldout
 
   e2e:
     runs-on: ubuntu-24.04
