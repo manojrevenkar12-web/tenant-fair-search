@@ -1,0 +1,6 @@
+apiVersion: v2
+name: tenant-fair-search
+description: Multi-tenant hybrid product search service in front of Elasticsearch
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

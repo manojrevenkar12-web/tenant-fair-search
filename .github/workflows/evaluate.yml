@@ -39,6 +39,12 @@ jobs:
       - name: evaluate
         run: |
           if [ "${{ inputs.set }}" = "heldout" ]; then python -m tfs.eval.cli heldout; else python -m tfs.eval.cli evaluate; fi
+      - name: print the generated reports (base64 tar between markers) so they can be committed from the log
+        run: |
+          echo "TFS-REPORTS-BEGIN"
+          tar czf - reports $(test -f config/heldout.lock && echo config/heldout.lock) | base64 -w0
+          echo
+          echo "TFS-REPORTS-END"
       - uses: actions/upload-artifact@v4
         with:
           name: reports-${{ inputs.set }}

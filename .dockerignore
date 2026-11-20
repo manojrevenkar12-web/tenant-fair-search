@@ -1,0 +1,4 @@
+*
+!service/target/scala-3.3.4/tenant-fair-search.jar
+!config/platform.json
+!config/index.json

@@ -1,0 +1,31 @@
+image:
+  repository: ghcr.io/manojrevenkar12-web/tenant-fair-search
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+
+replicas: 3
+
+# Settings come from config/platform.json and config/index.json, mounted from a ConfigMap that Terraform creates
+# from those files. The chart never holds its own copy.
+configMap: tenant-fair-search-config
+
+elasticsearch:
+  url: http://search-es-http:9200
+
+# Term models are trained offline per tenant and published to this volume.
+models:
+  claimName: tenant-fair-search-models
+
+resources:
+  requests: {cpu: 500m, memory: 768Mi}
+  limits: {cpu: "2", memory: 1536Mi}
+
+autoscaling:
+  minReplicas: 3
+  maxReplicas: 12
+  targetCPU: 65
+
+# Only the API gateway's namespace may call the service; the service may only call the cluster and DNS.
+networkPolicy:
+  gatewayNamespace: gateway
+  elasticsearchLabel: {common.k8s.elastic.co/type: elasticsearch}
