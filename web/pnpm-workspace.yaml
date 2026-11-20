@@ -1,0 +1,5 @@
+# Supply-chain policy: nothing younger than a day is installed (CI's pnpm enforces the same).
+minimumReleaseAge: 1440
+overrides:
+  electron-to-chromium: 1.5.488
+  source-map-js: 1.2.2

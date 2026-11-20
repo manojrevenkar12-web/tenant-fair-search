@@ -39,6 +39,8 @@ async def score_design(service: Service, shop: Shop, design: str, seed: int, k: 
             "es_ms": ans.body["esTookMs"],
             "cost_eur": ans.body["costEur"],
             "client_ms": ans.ms,
+            "top5": ranked[:5],
+            "understood": {"text": ans.body["text"], "filters": {k: v for k, v in ans.body["filters"].items() if v is not None}},
         }
 
     return list(await asyncio.gather(*(one(q) for q in shop.queries)))

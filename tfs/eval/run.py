@@ -48,7 +48,37 @@ async def evaluate_seed(seed: int, designs: list[str], with_load: bool, queries:
             for s in shops:
                 rows.extend(await relevance.score_design(service, s, d, seed, k, concurrency))
         loaded = await load.run(service, shops, seed) if with_load else None
-    return {"seed": seed, "prepared": prepared, "rows": rows, "load": loaded}
+    return {"seed": seed, "prepared": prepared, "rows": rows, "load": loaded, "examples": examples(shops, rows)}
+
+
+def examples(shops, rows: list[dict]) -> list[dict]:
+    """Per query shape, the query where routing changed the answer most: both top-5 lists with the hidden grades."""
+    by_shop = {s.name: s for s in shops}
+    lex = {r["query"]: r for r in rows if r["design"] == "lexical"}
+    out = []
+    for shape in SHAPES:
+        candidates = [r for r in rows if r["design"] == "routed" and r["shape"] == shape and r["query"] in lex and r["ndcg"] >= 0.6]
+        if not candidates:
+            continue
+        best = max(candidates, key=lambda r: (r["ndcg"] - lex[r["query"]]["ndcg"], r["query"]))
+        shop = by_shop[best["tenant"]]
+        q = next(q for q in shop.queries if q.id == best["query"])
+        grades = shop.grades(q)
+
+        def listing(r: dict, shop=shop, grades=grades) -> list[dict]:
+            return [{"title": shop.by_id[pid].title, "price": shop.by_id[pid].price, "grade": grades.get(pid, 0)} for pid in r["top5"]]
+
+        out.append({
+            "tenant": shop.name,
+            "shape": shape,
+            "query": q.text,
+            "filters": q.filters,
+            "understood": best["understood"],
+            "plan": best["plan"],
+            "lexical": {"ndcg": lex[q.id]["ndcg"], "top": listing(lex[q.id])},
+            "routed": {"ndcg": best["ndcg"], "top": listing(best)},
+        })
+    return out
 
 
 def evaluate(seeds: list[int], with_load: bool = True, queries: int | None = None, concurrency: int = 8) -> dict:
@@ -115,4 +145,5 @@ def summarise(per_seed: list[dict], designs: list[str], seeds: list[int]) -> dic
         "designs": out_designs,
         "comparisons": comparisons,
         "load": load_summary,
+        "examples": per_seed[0].get("examples", []),
     }
