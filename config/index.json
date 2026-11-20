@@ -1,0 +1,28 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "analysis": {
+      "normalizer": {
+        "lower": {"type": "custom", "filter": ["lowercase"]}
+      }
+    }
+  },
+  "mappings": {
+    "_routing": {"required": true},
+    "dynamic": "strict",
+    "properties": {
+      "tenant": {"type": "keyword"},
+      "id": {"type": "keyword"},
+      "sku": {"type": "keyword", "normalizer": "lower"},
+      "title": {"type": "text", "analyzer": "english"},
+      "description": {"type": "text", "analyzer": "english"},
+      "brand": {"type": "keyword", "normalizer": "lower", "fields": {"text": {"type": "text", "analyzer": "standard"}}},
+      "colour": {"type": "keyword", "normalizer": "lower"},
+      "size": {"type": "keyword", "normalizer": "lower"},
+      "price": {"type": "double"},
+      "inStock": {"type": "boolean"},
+      "vec": {"type": "dense_vector", "dims": 32, "index": true, "similarity": "cosine"}
+    }
+  }
+}
